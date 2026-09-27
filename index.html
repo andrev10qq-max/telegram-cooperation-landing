@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100e0b">
+  <meta name="description" content="Дізнайтеся більше про можливість співпраці. Заповніть коротку заявку в Telegram.">
+  <title>Співпраця в Telegram</title>
+  <style>
+    :root { color-scheme: dark; --gold:#f5bd52; --gold-light:#ffe5a0; --ink:#100e0b; --muted:#c9c5bd; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; color:#fff; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; background:radial-gradient(ellipse at 78% 30%,#49331b 0,transparent 36%),radial-gradient(ellipse at 12% 78%,#362613 0,transparent 34%),linear-gradient(125deg,#090908,#1b1711 55%,#0b0a08); }
+    .page { width:min(1120px,100%); margin:auto; padding:clamp(28px,6vw,72px) 24px 32px; min-height:100vh; display:flex; flex-direction:column; }
+    .hero { flex:1; display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:36px; }
+    .copy { position:relative; z-index:1; padding:24px 0; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; color:var(--gold-light); font-size:13px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+    .eyebrow::before { content:""; width:24px; height:1px; background:var(--gold); }
+    h1 { margin:20px 0 18px; max-width:650px; font-size:clamp(48px,7.7vw,92px); line-height:.96; letter-spacing:-.06em; }
+    h1 span { display:block; color:var(--gold); text-shadow:0 3px 28px #c0791838; }
+    .lead { max-width:530px; color:#e1ddd5; font-size:clamp(18px,2.3vw,23px); line-height:1.48; }
+    .lead strong { color:var(--gold-light); }
+    .features { list-style:none; padding:0; margin:34px 0 0; display:grid; gap:18px; }
+    .features li { display:flex; align-items:center; gap:15px; color:#f2eee7; font-size:16px; }
+    .icon { width:43px; height:43px; flex:none; display:grid; place-items:center; border:1px solid #dca83d; border-radius:50%; color:var(--gold); font-size:19px; box-shadow:0 0 22px #e2a22b1a; }
+    .features b { display:block; font-size:16px; }
+    .features small { display:block; margin-top:2px; color:#aaa49a; font-size:13px; }
+    .visual { min-height:490px; display:grid; place-items:center; position:relative; }
+    .halo { position:absolute; width:min(82%,390px); aspect-ratio:1; border-radius:50%; background:#efa82412; filter:blur(38px); }
+    .phone { position:relative; width:min(310px,80%); min-height:450px; padding:14px; border:1px solid #d79e39; border-radius:38px; background:linear-gradient(145deg,#4c3b27,#111315 24%,#090b0d 75%,#513718); box-shadow:0 24px 80px #000b, inset 0 0 0 3px #080909,0 0 35px #efae3820; transform:rotate(4deg); }
+    .screen { min-height:420px; padding:20px 15px; overflow:hidden; border-radius:27px; background:linear-gradient(160deg,#121821,#090d12 72%,#17130c); }
+    .top { display:flex; align-items:center; gap:11px; padding:4px 2px 18px; border-bottom:1px solid #ffffff12; }
+    .tg { width:38px; height:38px; display:grid; place-items:center; border-radius:50%; background:#209bd7; color:#fff; font-size:19px; }
+    .top b { display:block; font-size:14px; }
+    .top small { color:#a5a9b0; }
+    .bubble { margin-top:17px; padding:14px; border:1px solid #ffffff0b; border-radius:15px; background:#1b222d; color:#e9edf2; font-size:14px; line-height:1.55; }
+    .bubble strong { display:block; margin-bottom:5px; color:#fff; }
+    .check { display:flex; gap:9px; align-items:center; margin:8px 0; }
+    .check i { width:19px; height:19px; display:grid; place-items:center; flex:none; border-radius:50%; background:#41d88c; color:#08130e; font-style:normal; font-size:12px; font-weight:900; }
+    .note { color:#aab0bb; font-size:11px; text-align:right; }
+    .cta-wrap { margin:22px 0 0; }
+    .cta { min-height:88px; display:flex; align-items:center; justify-content:center; gap:18px; padding:18px 24px; border:2px solid #ffe49a; border-radius:999px; color:#171108; background:linear-gradient(105deg,#ffe79c,#f2bd4b 48%,#ffdf84); box-shadow:0 8px 30px #f2b63845,inset 0 2px 2px #fff9; font-size:clamp(20px,3.4vw,31px); font-weight:850; text-decoration:none; text-align:center; transition:transform .18s,filter .18s; }
+    .cta:hover { transform:translateY(-2px); filter:brightness(1.06); }
+    .cta:focus-visible { outline:3px solid white; outline-offset:4px; }
+    .cta-icon { width:48px; height:48px; flex:none; display:grid; place-items:center; border-radius:50%; background:#169bd5; color:white; font-size:24px; }
+    .arrow { font-size:30px; }
+    .disclaimer { max-width:760px; margin:14px auto 0; color:#a9a39a; font-size:12px; line-height:1.5; text-align:center; }
+    footer { padding-top:28px; color:#77736d; font-size:12px; text-align:center; }
+    @media(max-width:760px) { .page { padding:26px 18px 22px; } .hero { grid-template-columns:1fr; gap:0; } .copy { padding:22px 0 0; } h1 { font-size:clamp(48px,13vw,76px); } .lead { font-size:18px; } .features { margin-top:25px; gap:14px; } .visual { min-height:370px; } .phone { width:250px; min-height:360px; } .screen { min-height:332px; padding:14px 12px; } .bubble { margin-top:12px; padding:11px; font-size:12px; } .top { padding-bottom:12px; } .cta { min-height:72px; gap:12px; padding:14px 16px; font-size:19px; } .cta-icon { width:42px; height:42px; } }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="title">
+      <div class="copy">
+        <div class="eyebrow">Можливість співпраці</div>
+        <h1 id="title">Твій наступний крок <span>у Telegram</span></h1>
+        <p class="lead">Якщо тобі <strong>від 18 до 45 років</strong> і цікаво дізнатися про співпрацю — залиш коротку заявку в Telegram.</p>
+        <ul class="features">
+          <li><span class="icon" aria-hidden="true">✦</span><span><b>Коротка анкета</b><small>Відповідай на кілька запитань у боті</small></span></li>
+          <li><span class="icon" aria-hidden="true">↗</span><span><b>Зручний зв’язок</b><small>Адміністратор напише після заявки</small></span></li>
+          <li><span class="icon" aria-hidden="true">?</span><span><b>Дізнайся подробиці</b><small>Умови співпраці пояснять особисто</small></span></li>
+        </ul>
+      </div>
+      <div class="visual" aria-label="Ілюстрація Telegram-бота">
+        <div class="halo"></div>
+        <div class="phone"><div class="screen">
+          <div class="top"><span class="tg" aria-hidden="true">➤</span><span><b>Заявка на співпрацю</b><small>бот у Telegram</small></span></div>
+          <div class="bubble"><strong>Вітаю! 👋</strong>Розкажи трохи про себе — це займе лише кілька хвилин.</div>
+          <div class="bubble"><div class="check"><i>✓</i>Короткі запитання</div><div class="check"><i>✓</i>Для повнолітніх 18–45</div><div class="check"><i>✓</i>Зв’язок з адміністратором</div><div class="check"><i>✓</i>Деталі після заявки</div></div>
+          <div class="note">анкета в Telegram</div>
+        </div></div>
+      </div>
+    </section>
+    <div class="cta-wrap">
+      <!-- Replace YOUR_BOT_USERNAME with the bot username, without @. -->
+      <a class="cta" href="https://t.me/YOUR_BOT_USERNAME" aria-label="Перейти до Telegram-бота"><span class="cta-icon" aria-hidden="true">➤</span><span>Перейти в Telegram</span><span class="arrow" aria-hidden="true">→</span></a>
+      <p class="disclaimer">Надсилання заявки не гарантує працевлаштування чи дохід. Умови та характер співпраці уточнюйте до надання персональних даних.</p>
+    </div>
+    <footer>© <span id="year"></span> Інформація про співпрацю</footer>
+  </main>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
